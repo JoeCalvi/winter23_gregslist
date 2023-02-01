@@ -14,7 +14,8 @@ function _drawJobs() {
 }
 
 function _drawJob() {
-
+  setText('ListingModalLabel', `${appState.job.company} ${appState.job.location}`)
+  setHTML('ListingModalBody', appState.job.JobDetailsTemplate)
 
 }
 
@@ -37,7 +38,7 @@ export class JobsController {
     _drawJobs()
   }
 
-  setActiveJob(jobId){
+  setActiveJob(jobId) {
     try {
       jobsService.setActiveJob(jobId)
     } catch (error) {
@@ -45,13 +46,23 @@ export class JobsController {
     }
   }
 
-  handleFormSubmit(){
+  handleFormSubmit() {
     try {
       event.preventDefault()
       const form = event.target
       const formData = getFormData(form)
       jobsService.createJob(formData)
       form.reset()
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
+  async deleteJob(jobId) {
+    try {
+      const yes = await Pop.confirm('Are you sure you want to delete this posting?')
+      if (!yes) { return }
+      jobsService.deleteJob(jobId)
     } catch (error) {
       Pop.error(error)
     }

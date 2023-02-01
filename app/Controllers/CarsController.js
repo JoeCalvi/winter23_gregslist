@@ -14,8 +14,8 @@ function _drawCars() {
 
 function _drawCar() {
 
-  setText('listingModalLabel', `${appState.car.make} ${appState.car.model}`)
-  setHTML('listing-modal-body', appState.car.CarDetailsTemplate)
+  setText('ListingModalLabel', `${appState.car.make} ${appState.car.model}`)
+  setHTML('ListingModalBody', appState.car.CarDetailsTemplate)
 
   // listingModalLabel
   // 'listing-modal-body'

@@ -9,7 +9,7 @@
   bottom: 5%;
   font-size: x-large;
   color: black;
-  filter: drop-shadow(0 0 15px #faefedb0);
+  text-shadow: 1px 2px 2px pink;
   left: 1rem;
   user-select: none;
 }
@@ -23,7 +23,7 @@
   bottom: 5%;
   font-size: x-large;
   color: black;
-  filter: drop-shadow(0 0 15px #faefedb0);
+  text-shadow: 1px 2px 2px pink;
   left: 1rem;
   user-select: none;
 }

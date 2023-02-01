@@ -15,7 +15,9 @@ export class Car {
   get CarCardTemplate() {
     return /*html*/`
     <div class="col-md-4 my-3">
-    <div class="card elevation-2 car" onclick="app.carsController.setActiveCar('${this.id}')" data-bs-toggle="modal" data-bs-target="#listingModal">
+    <div class="card elevation-2 car" 
+    onclick="app.carsController.setActiveCar('${this.id}')" 
+    data-bs-toggle="modal" data-bs-target="#ListingModal">
       <img
         src="${this.imgUrl}"
         alt="${this.make}" class="rounded">
@@ -29,7 +31,11 @@ export class Car {
   get CarDetailsTemplate(){
     return /*html*/`
       <div>
-        <button class="btn btn-danger" data-bs-dismiss="modal" onclick="app.carsController.deleteCar('${this.id}')">DELETE THE CAR!!!!!</button>
+        <h4>${this.year}</h4>
+        <p>${this.description}</p>
+        <button class="btn btn-danger" 
+        data-bs-dismiss="modal" 
+        onclick="app.carsController.deleteCar('${this.id}')">DELETE THE CAR!!!!!</button>
       </div>
     `
   }

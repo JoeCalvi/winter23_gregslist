@@ -1,9 +1,9 @@
 import { generateId } from "../Utils/generateId.js";
 
 
-export class Job { 
+export class Job {
 
-    constructor(data){
+    constructor(data) {
         this.id = data.id || generateId()
         this.company = data.company
         this.location = data.location
@@ -13,14 +13,27 @@ export class Job {
         this.description = data.description
     }
 
-    get JobTemplate(){
+    get JobTemplate() {
         return `
-        <div class="col-md-4 card elevation-2 my-3 job" onclick="app.jobsController.setActiveJob('${this.id}')">
+        <div class="col-md-4 card elevation-2 my-3 job" 
+        onclick="app.jobsController.setActiveJob('${this.id}')" 
+        data-bs-toggle="modal" data-bs-target="#ListingModal">
             <img src="${this.imgUrl}" 
             alt="" class="rounded">
                 <p><b>${this.company} ${this.location} - ${this.pay}</b></p>
         </div>
         `
+    }
+
+    get JobDetailsTemplate() {
+        return /*html*/`
+      <div>
+        <h4>${this.position}</h4>
+        <p>${this.description}</p>
+        <button class="btn btn-danger" data-bs-dismiss="modal" 
+        onclick="app.jobsController.deleteJob('${this.id}')">DELETE JOB</button>
+      </div>
+    `
     }
 
     static JobForm() {

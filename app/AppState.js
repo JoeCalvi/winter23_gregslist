@@ -20,18 +20,7 @@ class AppState extends EventEmitter {
 
   /** @type {import('./Models/Job').Job[]} */
 
-  jobs = [
-    // new Job(
-    //   {
-    //     company: "CodeWorks",
-    //     location: "Boise, ID",
-    //     position: "T.A.",
-    //     pay: "$20/hr",
-    //     hours: "40/wk",
-    //     description: "crazy long hours and terrible students"
-    //   }
-    // ),
-  ]
+  jobs = loadState('jobs', [Job])
 
   /** @type {import('./Models/Job').Job} */
 
