@@ -21,22 +21,22 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Job').Job[]} */
 
   jobs = [
-    new Job(
-      {
-        company: "CodeWorks",
-        location: "Boise, ID",
-        position: "T.A.",
-        pay: "$20/hr",
-        hours: "40/wk",
-        description: "crazy long hours and terrible students"
-      }
-    ),
+    // new Job(
+    //   {
+    //     company: "CodeWorks",
+    //     location: "Boise, ID",
+    //     position: "T.A.",
+    //     pay: "$20/hr",
+    //     hours: "40/wk",
+    //     description: "crazy long hours and terrible students"
+    //   }
+    // ),
   ]
 
   /** @type {import('./Models/Job').Job} */
 
   job = null
-  
+
 }
 
 export const appState = new Proxy(new AppState(), {

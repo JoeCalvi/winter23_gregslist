@@ -24,6 +24,8 @@ export class JobsController {
   constructor() {
     console.log('Hello this is the jobs Controller')
     this.show()
+    appState.on('jobs', _drawJobs)
+    appState.on('job', _drawJob)
     _drawJobs()
   }
 
@@ -31,12 +33,25 @@ export class JobsController {
   show() {
     setText('add-listing-button', 'Add Listing')
     setText('listingFormLabel', 'Add New Job Listing')
+    setHTML('the-actual-form', Job.JobForm())
     _drawJobs()
   }
 
   setActiveJob(jobId){
     try {
       jobsService.setActiveJob(jobId)
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
+  handleFormSubmit(){
+    try {
+      event.preventDefault()
+      const form = event.target
+      const formData = getFormData(form)
+      jobsService.createJob(formData)
+      form.reset()
     } catch (error) {
       Pop.error(error)
     }
