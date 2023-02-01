@@ -1,4 +1,6 @@
 import { Car } from "./Models/Car.js"
+import { House } from "./Models/House.js"
+import { Job } from "./Models/Job.js"
 import { Value } from "./Models/Value.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
@@ -9,9 +11,32 @@ class AppState extends EventEmitter {
   values = loadState('values', [Value])
 
   /** @type {import('./Models/Car').Car[]} */
+
   cars = loadState('cars', [Car])
+
   /** @type {import('./Models/Car').Car} */
+
   car = null
+
+  /** @type {import('./Models/Job').Job[]} */
+
+  jobs = [
+    new Job(
+      {
+        company: "CodeWorks",
+        location: "Boise, ID",
+        position: "T.A.",
+        pay: "$20/hr",
+        hours: "40/wk",
+        description: "crazy long hours and terrible students"
+      }
+    ),
+  ]
+
+  /** @type {import('./Models/Job').Job} */
+
+  job = null
+  
 }
 
 export const appState = new Proxy(new AppState(), {

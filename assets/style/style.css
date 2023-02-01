@@ -8,8 +8,22 @@
   position: absolute;
   bottom: 5%;
   font-size: x-large;
-  color: bisque;
-  filter: drop-shadow(0 0 15px rgba(250, 128, 114, 0.691));
+  color: black;
+  filter: drop-shadow(0 0 15px #faefedb0);
+  left: 1rem;
+  user-select: none;
+}
+
+.job{
+  position: relative;
+}
+
+.job p{
+  position: absolute;
+  bottom: 5%;
+  font-size: x-large;
+  color: black;
+  filter: drop-shadow(0 0 15px #faefedb0);
   left: 1rem;
   user-select: none;
 }
